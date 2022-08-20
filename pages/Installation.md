@@ -29,7 +29,7 @@ project.extra["maven_repo_url"] = "<url>"
 ```
 
 If you don't have an access file and want to use TranClate, write an e-mail
-to [contact@timoliacreative.de](contact@timoliacreative.de) with regards for an access key for TranClate.
+to [contact@timoliacreative.de](mailto:contact@timoliacreative.de) with regards for an access key for TranClate.
 
 ## Gradle
 

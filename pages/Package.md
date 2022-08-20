@@ -1,4 +1,4 @@
-# Package Marketplace & non-Marketplace Projects
+# Package Projects
 
 ## McWorld
 
