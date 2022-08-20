@@ -15,4 +15,29 @@ The whole concept of TranClate is a [Kotlin DSL](https://kotlinlang.org/docs/typ
 to let the developer only write compilable code, in our case we want to make sure a developer can only write code that
 is within the limits of Minecraft.
 
+TranClate is also designed to be extended through plugins/libraries. This is 
+encouraged through the design desiccation to add/apply data to objects from anywhere.
 
+Example:
+
+```kotlin
+val sampleEntity = entity {
+    name("myEntity")
+    behaviour {
+        components {
+            physics()
+        }
+    }
+}
+
+sampleEntity.behaviour {
+    components {
+        pushable()
+    }
+}
+```
+
+Instead of overwriting the `physics()` component, the second call will apply the `pushable()` components.
+
+With this design plugins/libraries can easily modify predetermined objects like the player entity without
+worrying to overwrite code of the developer that is using the plugin/library.
