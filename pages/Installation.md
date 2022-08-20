@@ -15,7 +15,7 @@ GitHub Actions will build the Addon and will make add a release with a `.mcworld
 
 Note: he Template is build on JDK-17 and uses libraries only compatible with the JDK-17.
 
-## Config
+## &#128195; Config
 
 To access TranClate and the TranClate standard library you need to add a config for authentication in the `.gradle`
 directory. The complete path is `~/.gradle/env-timoliacreative.local.gradle.kts` (while "~" is the home directory).
@@ -29,9 +29,9 @@ project.extra["maven_repo_url"] = "<url>"
 ```
 
 If you don't have an access file and want to use TranClate, write an e-mail
-to [contact@timoliacreative.de](mailto:contact@timoliacreative.de) with regards for an access key for TranClate.
+to [contact@timoliacreative.de](mailto:contact@timoliacreative.de) with the subject to get an access key for TranClate.
 
-## Gradle
+## &#128296; Gradle
 
 The whole project is build with gradle. To guarantee a working project ensure:
 

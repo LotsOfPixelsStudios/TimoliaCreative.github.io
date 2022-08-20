@@ -23,6 +23,8 @@ thereby also used as the namespace of entities etc.
 Within the Body or the Addon Context we can define entities, items, etc. that will automatically be associated with the
 addon. 
 
-## Modifications
+## &#128195; Modifications
 
-## Build the addon
+## &#128296; Build the addon
+
+## &#129514; Experimental Features

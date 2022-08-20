@@ -1,6 +1,6 @@
 # Package Projects
 
-## McWorld
+## &#127757; McWorld
 
 For non Marketplace Projects a McWorld File is the way to go to package and distribute
 the project.
@@ -13,5 +13,5 @@ addon() {
 }
 ````
 
-## Marketplace Package
+## &#128230; Marketplace Package
 
