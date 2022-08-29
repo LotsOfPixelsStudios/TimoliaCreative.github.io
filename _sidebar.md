@@ -6,3 +6,4 @@
 * [Entities](pages/Entity.md)
 * [Package](pages/Package.md)
 * [Standard Library](pages/StandardLib.md)
+* [Plugins](pages/Plugin.md)
