@@ -24,7 +24,7 @@ fun SystemAddon.plane(data: Plane.() -> Unit) {
 
 addon {
     plane {
-        //define stuff within the Car class
+        //define stuff within the Plane class
     }
 }
 ````
