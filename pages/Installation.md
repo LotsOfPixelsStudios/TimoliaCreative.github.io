@@ -35,8 +35,8 @@ to [contact@timoliacreative.de](mailto:contact@timoliacreative.de) with the subj
 
 The whole project is build with gradle. To guarantee a working project ensure:
 
-- use JDK-17 or higher
+- use JDK-11 or higher
 - use gradle 7.2 or higher
-- use kotlin 1.6.20 or higher (already set within the `build.gradle.kts`)
+- use kotlin 1.7.0 or higher (already set within the `build.gradle.kts`)
 - use the latest TranClate version, breaking changes are done gradually with deprecations (The Template will be kept up
   to date)
