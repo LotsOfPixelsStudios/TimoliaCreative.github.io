@@ -25,7 +25,7 @@ stateSystem(addon) {
             transitions {
                 transitionNextState(Query.allAnimationsFinished)
             }
-            
+
             timeline {
                 keyFrame(1f, "/function some_spec_fun_$it")
                 keyFram(2f, "/say $it finished")
@@ -39,7 +39,7 @@ stateSystem(addon) {
 }
 ````
 
-Some other useful information and debuting tips: 
+Some other useful information and debuting tips:
 
 ````kotlin
 stateSystem(addon) {
@@ -58,7 +58,7 @@ stateSystem(addon) {
 }
 ````
 
-You can also trigger a state change with a command: 
+You can also trigger a state change with a command:
 
 ````kotlin
 stateSystem(addon) {
@@ -74,6 +74,7 @@ The standard library provides a way to modify the player within the whole addon 
 duplicates. But it is still recommended to modify the player in a central file to avoid confusion.
 
 Usage:
+
 ````kotlin
 val player = Player.modify(addon)
 
@@ -96,8 +97,8 @@ player.modifyResource {
 }
 ````
 
-Everything in the player is by standard applied, you have multiple ways to disable certain 
-vanilla stuff. 
+Everything in the player is by standard applied, you have multiple ways to disable certain
+vanilla stuff.
 
 ````kotlin
 player.modifyBehaviour {
@@ -134,18 +135,18 @@ furniture("id", "Display Name", addon) {
     width = 2f
     scale = 1f
     autoRotationAdjustment = true
-    
+
     icon {
         eggByTexture(getResource(""))
     }
-    
+
     //modify more stuff, at this point might consider implementing your own entity
     behaviour {
         components {
-            
+
         }
         componentGroups {
-            
+
         }
         //...
     }
@@ -162,7 +163,8 @@ furniture("id", "Display Name", addon) {
 ### Selector
 
 Call `Selector`, the companion object has all standard selectors, you can select
-with the name Annotation like 
+with the name Annotation like
+
 ````kotlin
 val selector = Selector.a
 ````
@@ -200,4 +202,28 @@ val command = "/tag ${Selector.a[family("player"), tag("coding")] add test2}"
 
 Select the n nearest players: `Selector.a[c(value = 2)]`
 
-Select entities on a certain height range (height 2 till 2+5 = 7): `Selector.a[y(2), dy(5)]` 
+Select entities on a certain height range (height 2 till 2+5 = 7): `Selector.a[y(2), dy(5)]`
+
+## Scoreboard
+
+All Scoreboard functions are McFunction executable!
+
+Call
+
+````kotlin
+Command.objectives
+//or
+Command.players
+````
+
+hover over the `objectives` or `players` for more documentation
+
+## Tell Raw
+
+Function is McFunction executable!
+
+Call
+
+````kotlin
+tellRaw(target = "@a", output = "Output", key = "car.race.finished", addon = addon)
+````
