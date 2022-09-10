@@ -13,7 +13,39 @@ a streamlined development experience with
 
 The whole concept of TranClate is a [Kotlin DSL](https://kotlinlang.org/docs/type-safe-builders.html) it's intention is
 to let the developer only write compilable code, in our case we want to make sure a developer can only write code that
-is within the limits of Minecraft.
+is within the limits of Minecraft. Another goal is to automate everything that can be automated.
+
+````kotlin
+addon(
+    projectName = "Project Name",
+    projectShort = "pn",
+    description = "by Timolia Creative",
+    packIcon = getResource("general/pack.png"),
+    world = getResource("world/$worldName"),
+    version = arrayListOf(1, 0, 0)
+) {
+    entity {
+        name("id", "Name of The Entity")
+        behaviour {
+            components {
+                damageSensor {
+                    trigger {
+                        cause = DamageType.ALL
+                        dealsDamage = false
+                    }
+                }
+            }
+        }
+        resource {
+            components {
+                spawnEgg {
+                    eggByColor(Color.RED, Color.BLACK)
+                }
+            }
+        }
+    }
+}
+````
 
 TranClate is also designed to be extended through plugins/libraries. This is 
 encouraged through the design desiccation to add/apply data to objects from anywhere.
@@ -21,6 +53,7 @@ encouraged through the design desiccation to add/apply data to objects from anyw
 Example:
 
 ```kotlin
+//applied by the user
 val sampleEntity = entity {
     name("myEntity")
     behaviour {
@@ -30,6 +63,7 @@ val sampleEntity = entity {
     }
 }
 
+//applied by the plugin
 sampleEntity.behaviour {
     components {
         pushable()
