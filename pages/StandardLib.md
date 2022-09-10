@@ -204,7 +204,7 @@ Select the n nearest players: `Selector.a[c(value = 2)]`
 
 Select entities on a certain height range (height 2 till 2+5 = 7): `Selector.a[y(2), dy(5)]`
 
-## Scoreboard
+### Scoreboard
 
 All Scoreboard functions are McFunction executable!
 
@@ -218,7 +218,7 @@ Command.players
 
 hover over the `objectives` or `players` for more documentation
 
-## Tell Raw
+### Tell Raw
 
 Function is McFunction executable!
 
