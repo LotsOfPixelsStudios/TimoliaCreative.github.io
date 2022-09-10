@@ -1,6 +1,6 @@
 # &#128218; Standard Library
 
-## State System
+## &#128187; State System
 
 The state system is an abstraction/mix of the animation-controller in the behaviour pack, it's designed to
 help write setup function. The advantage is that there is no overhead with entities.
@@ -68,7 +68,7 @@ stateSystem(addon) {
 val command = getStateTransitionCommand(2)  //mc function executable 
 ````
 
-## Player
+## &#127918; Player
 
 The standard library provides a way to modify the player within the whole addon without creating
 duplicates. But it is still recommended to modify the player in a central file to avoid confusion.
@@ -112,7 +112,7 @@ player.modifyBehaviour {
 }
 ````
 
-## Furniture
+## &#128186; Furniture
 
 The standard library provides some presets for furniture, to streamline the process of implementing
 new furniture entities.
@@ -157,7 +157,7 @@ furniture("id", "Display Name", addon) {
 }
 ````
 
-## Command
+## &#128190; Command
 
 ### Selector
 
