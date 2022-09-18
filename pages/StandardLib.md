@@ -1,5 +1,7 @@
 # &#128218; Standard Library
 
+The standard library implements useful extensions for TranClate. It can be seen like the kotlin std lib for kotlin.
+
 ## &#128187; State System
 
 The state system is an abstraction/mix of the animation-controller in the behaviour pack, it's designed to

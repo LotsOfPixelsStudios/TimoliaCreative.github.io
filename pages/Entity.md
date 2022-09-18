@@ -1,8 +1,31 @@
 # Entities
 
-## Basic
+## &#128204; Basic
 
-## Behaviour
+Entities can be defined in one place, not like in Minecraft.
+In Minecraft you have different entities like resource entity, behavior entity, animations, animation controllers,
+textures, geometries, ...
+
+In TranClate you can define the name of the entity and then further specify the entities via resources and behavior
+functions.
+This can be used to build up an own structure that fits the development style.
+
+````kotlin
+entity {
+    name(name = "id", displayName = "§aMy Entity")
+    behaviour {
+
+    }
+    resource {
+
+    }
+}
+````
+
+Note: To get a Spawn Egg within the Creative Inventory, a spawn egg must be defined. See more
+under [Resource](#Resource).
+
+## &#128295; Behaviour
 
 ### Components
 
@@ -13,10 +36,10 @@
 To add and remove Component Groups we can use events by calling within the entity context:
 
 ````kotlin
-entity {
+behaviour {
     events {
         event("event_name") {
-            
+
         }
     }
 }
@@ -36,7 +59,163 @@ events {
 }
 ````
 
-## Resource
+## &#127912; Resource
+
+### Textures
+
+To add a single texture add it like:
+
+````kotlin
+resource {
+    textureLayer(getResource("entities/default_texture.png"), layerName = "default")
+    geometryLayer(
+        getResource("entities/default_model.geo.json"),
+        layerName = "default"
+    )    //it's currently only possible to add 1 geometry layer
+}
+````
+
+The `layerName` always defaults to `default`.
+
+TranClate will only generate one texture if the same file is used between entities. But it's still possible to use
+raw textures if for example a vanilla texture is needed:
+
+````kotlin
+resource {
+    textureLayer(texturePath = "textures/entity/cat/jellie", layerName = "default")
+    geometryLayer(
+        geoId = "geometry.cat",
+        layerName = "default"
+    )    //it's currently only possible to add 1 geometry layer
+}
+````
+
+To add multiple textures that aren't rendered at the same time we can use:
+
+````kotlin
+resource {
+    textureLayer(
+        arrayListOf(
+            getResource("entities/default_texture_1.png"),
+            getResource("entities/default_texture_2.png"),
+            getResource("entities/default_texture_3.png")
+        ),
+        query = Query.variant,
+        layerName = "default"
+    )
+
+    textureLayer(
+        arrayListOf(
+            getResource("entities/default_model_1.geo.json"),
+            getResource("entities/default_model_2.geo.json"),
+            getResource("entities/default_model_3.geo.json")
+        ),
+        query = Query.variant,
+        layerName = "default"
+    )
+}
+````
+
+### Animations and Controllers
+
+To add animations load the file(s) like:
+
+````kotlin
+resource {
+    animation(getResource("entities/cat.animation.json"))
+}
+````
+
+Now we can use all animations within this file. We identify the animations with the last 'word' when thinking of words
+seperated through points '.'.
+
+Example: the identifier of the animation is `animation.cat.walk` so we can use `walk` as a valid animation in the
+controller.
+
+Controller:
+
+````kotlin
+resource {
+    animationController(name = "movement") {
+        animStates {
+            initialState = "default"
+            animState("default") {
+                transitions {
+                    transition("walk", Query.isMoving)
+                    transition("test", "0")
+                }
+            }
+            animState("walk") {
+                animation = arrayListOf("walk")
+            }
+            animState("test") {}
+        }
+    }
+}
+````
 
 ### Notes:
- - If you want to display the entity within the creative inventory you **must** define a spawn egg
+
+- If you want to display the entity within the creative inventory you **must** define a spawn egg
+
+### Spawn Egg
+
+To define a Spawn Egg add to the resource part a `components` context:
+
+````kotlin
+resource {
+    components {
+        spawnEgg {
+            displayItemName = "Spawn Plane" //will be set automatically to 'Spawn <displayName>'
+            eggByColor(Color.BLACK, Color.RED)
+        }
+    }
+}
+````
+
+There a multiple ways to define the spawn egg:
+
+````kotlin
+eggByTexture(texture = "spawn_egg", textureIndex = 2)   //vanilla spawn egg
+eggByColor(Color.BLACK, Color.RED)                      //vanilla spawn egg with custom colors
+eggByTexture(textureName = "pig", path = "textures/items/pig")  //use a predefined texture
+eggByFile(file = getResource("icons/pig.icon.png"))     //use a custom texture
+````
+
+### Other Components
+
+All other components can be called like the spawnEgg like:
+
+````kotlin
+resource {
+    components {
+        //...
+    }
+}
+````
+
+List of possible functions:
+
+| function         | description                                                    | type     |
+|------------------|----------------------------------------------------------------|----------|
+| spawnEgg         | define a spawn egg for the entity                              | function |
+| particleEffects  | add a particle effect                                          | function | 
+| soundEffects     | add a sound effect                                             | function |
+| locators         | define the attach point for the leash                          | function |
+| scripts          | define scripts, like preAnimation & variables                  | function |
+| enableAttachment | define if the entity can wear armor                            | variable |
+| material         | define which material the entity is, default `parrot`          | variable | 
+| disableMaterial  | as the default is `parrot` you can disable it, default `false` | variable |
+
+
+#### Define more:
+
+If you want to modify for example the `mineEngineVersion` within the entity you can use:
+
+````kotlin
+components {
+    unsafe.entity.description {
+        mineEngineVersion(version = "1.10.0")   //default is `1.8.0`
+    }
+}
+````
