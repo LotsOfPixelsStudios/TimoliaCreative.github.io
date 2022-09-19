@@ -1,0 +1,16 @@
+@font-face {font-family: "Minecraft Ten";
+    src: url("http://db.onlinewebfonts.com/t/a7fcb1becc12274d5b761b1d895f8aa9.eot"); /* IE9*/
+    src: url("http://db.onlinewebfonts.com/t/a7fcb1becc12274d5b761b1d895f8aa9.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("http://db.onlinewebfonts.com/t/a7fcb1becc12274d5b761b1d895f8aa9.woff2") format("woff2"), /* chrome firefox */
+    url("http://db.onlinewebfonts.com/t/a7fcb1becc12274d5b761b1d895f8aa9.woff") format("woff"), /* chrome firefox */
+    url("http://db.onlinewebfonts.com/t/a7fcb1becc12274d5b761b1d895f8aa9.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("http://db.onlinewebfonts.com/t/a7fcb1becc12274d5b761b1d895f8aa9.svg#Minecraft Ten") format("svg"); /* iOS 4.1- */
+}
+
+.markdown-section h1 {
+    font-family: "Minecraft Ten", fantasy;
+}
+
+.markdown-section {
+    padding: 0;
+}

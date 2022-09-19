@@ -10,8 +10,12 @@
    <!-- Themes -->
    <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
    <!-- Custom Styles -->
+   <link href="style.css" rel="stylesheet" type="text/css"/>
+
    <style>
      :root {
+        --content-max-width                 : 65em;
+
         --base-background-color: #2a2d2d;
         --base-color           : #f0ebe2;
        /* --theme-hue: 325; */
@@ -32,7 +36,9 @@
         logo: '_media/banner.png',
         name: 'TranClate',
         loadSidebar: true,
-        subMaxLevel: 2
+        subMaxLevel: 2,
+
+        themeColor: '#e88d3c',
      };
    </script>
    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
