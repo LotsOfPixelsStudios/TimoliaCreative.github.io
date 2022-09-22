@@ -29,11 +29,11 @@ addon {
 }
 ````
 
-## Unsafe (experimental &#129514;) 
+## Unsafe &#129514; 
 
 Most TranClate Objects have an inner class called `Unsafe`. This class contains
 data the Minecraft Developer sets and modifies with functions. For plugins, we may want
-to access or remove data from these maps - to do that we can go into the unsafe context like:
+to access, modify or remove data from these maps/objects - to do that we can go into the unsafe context like:
 
 ````kotlin
 behEntity {

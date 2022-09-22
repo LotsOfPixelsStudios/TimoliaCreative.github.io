@@ -1,6 +1,6 @@
 # Package Projects
 
-## &#127757; McWorld
+## &#127757; McWorld/ McAddon
 
 For non Marketplace Projects a McWorld File is the way to go to package and distribute
 the project.
@@ -13,6 +13,16 @@ addon() {
 }
 
 zipWorld()
+````
+
+To zip just the addon use
+
+````kotlin
+addon() {
+
+}
+
+zipAddon()
 ````
 
 ## &#128230; Marketplace Package
