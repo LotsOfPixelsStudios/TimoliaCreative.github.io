@@ -23,7 +23,7 @@ entity {
 ````
 
 Note: To get a Spawn Egg within the Creative Inventory, a spawn egg must be defined. See more
-under [Resource](#Resource).
+under [Resource](https://timoliacreative.github.io/#/pages/Entity?id=_127912-resource).
 
 ## &#128295; Behaviour
 
@@ -60,6 +60,29 @@ events {
 ````
 
 ## &#127912; Resource
+
+### Blockbench Files
+
+TranClate has an Opt-In option for blockbench files:
+
+Note: This is Opt-In as there are still some issues with parsing the geometry.
+
+````kotlin
+resource {
+    loadBlockbenchFile(getResource("default_model.bbmodel"))
+}
+````
+
+The geometry, texture and all animations will be available if there are any.
+To access animations see [Animations](https://timoliacreative.github.io/#/pages/Entity?id=animations-and-controllers).
+
+If there are multiple textures defined, a Query is necessary to select the textures like:
+
+````kotlin
+resource {
+    loadBlockbenchFile(getResource("default_model.bbmodel"), Query.variant)
+}
+````
 
 ### Textures
 
