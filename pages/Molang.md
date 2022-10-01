@@ -4,6 +4,22 @@ Molang is a scripting language in which a developer can interact with minecraft.
 TranClate has an integrated DSL to help the developer write correct and predictable Queries, Variables and Math
 operations.
 
+````kotlin
+animationController("state") {
+    animStates {
+        animState("default") {
+            transitions {
+                transition("state") { 
+                    Query.markVariant eq Math.random(1, 10) 
+                    or
+                    !Query.isBaby
+                } 
+            }
+        }
+    }
+}
+````
+
 We now want to discuss in detail how this works:
 
 ## Queries
