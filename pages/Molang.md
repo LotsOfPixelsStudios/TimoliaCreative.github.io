@@ -30,7 +30,7 @@ TranCLate will provide all Queries in the class `Query`. To access them type
 Query.variant
 ````
 
-This will return a `Query` object that has extended the `Molang` interface. That means that the
+This will return a `Query` object with the `Molang` interface. That means the
 `Query` object on its own is valid for any Molang input like in the animation controller transition:
 
 ````kotlin
@@ -56,8 +56,8 @@ TranClate will also provide all Math operations for Molang. Access them on the `
 Math.abs(-2)
 ````
 
-This will also return a `Math` object which has again the Molang interface, which means it can also
-be used on its own in Molang input fields.
+This will also return a `Math` object which has again the Molang interface, so it can also
+be used on its own in a Molang input field.
 
 ## Variables
 
