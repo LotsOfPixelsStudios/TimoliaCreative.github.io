@@ -229,3 +229,24 @@ Call
 ````kotlin
 tellRaw(target = "@a", output = "Output", key = "car.race.finished", addon = addon)
 ````
+
+### Title Raw
+
+Function is McFunction executable!
+
+Call
+
+````kotlin
+titleRaw(target = "@a") {
+    clear
+}
+titleRaw(target = "@a") {
+    reset
+}
+titleRaw(target = "@a") {
+    text(TitlePosition.TITLE, "output", "key.text", addon)
+}
+titleRaw(target = "@a") {
+    times(fadeIn = 0.2f, stay = 3f, fadeOut = 0.2f)
+}
+````
