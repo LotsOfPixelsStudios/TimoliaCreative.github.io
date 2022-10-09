@@ -29,7 +29,51 @@ under [Resource](https://timoliacreative.github.io/#/pages/Entity?id=_127912-res
 
 ### Components
 
+Components are the building blocks for the behaviour of the entity. So we can give the entity the ability to jump, fly,
+walk or attack.
+
+Here are some example Components:
+
+```kotlin
+behaviour {
+    components {
+        physics {
+            hasGravity = true
+            hasCollision = true
+        }
+        familyTypes = arrayListOf("mob", "animal")
+    }
+}
+```
+
 ### Component Groups
+
+In Component Groups we can now define components that aren't present at all time. So we can add remove and overwrite 
+components.
+
+```kotlin
+behaviour {
+    componentGroups {
+        componentGroup("baby") {
+            isBaby()
+        }
+        componentGroup("adult") {
+            attack {
+                damage = 3
+                damageRange = arrayListOf(1, 2)
+            }
+            behMeleeAttack {
+                priority = 1
+            }
+        }
+    }
+    components {
+        physics { }
+    }
+}
+```
+
+We can give each component group a name to keep track of them.
 
 ### Events
 
@@ -38,12 +82,28 @@ To add and remove Component Groups we can use events by calling within the entit
 ````kotlin
 behaviour {
     events {
-        event("event_name") {
-
+        event("grow_up") {
+            remove {
+                componentGroup = "baby"
+            }
+            add {
+                componentGroup = "adult"
+            }
         }
     }
 }
+````
 
+Tip: To keep track of events, avoid collisions use the naming convention: 
+
+````kotlin
+behaviour {
+    events {
+        event("${properties.namespace}:grow_up") {
+            
+        }
+    }
+}
 ````
 
 #### Default Events
@@ -61,7 +121,7 @@ events {
 
 ## &#127912; Resource
 
-### Blockbench Files
+### Blockbench Files, Experimental
 
 TranClate has an Opt-In option for blockbench files:
 
@@ -229,7 +289,6 @@ List of possible functions:
 | enableAttachment | define if the entity can wear armor                            | variable |
 | material         | define which material the entity is, default `parrot`          | variable | 
 | disableMaterial  | as the default is `parrot` you can disable it, default `false` | variable |
-
 
 #### Define more:
 
