@@ -13,11 +13,11 @@ parts of the addon, the normal Minecraft developer should not see for complexity
 ## Exploiting Extension-functions
 
 If we want to write an accessible plugin for a developer we may want to use an extension-function 
-on the `SystemAddon` class. With that we can simply implement within the addon brackets
+on the `Addon` interface. With that we can simply implement within the addon brackets
 the additional functions of the plugin.
 
 ````kotlin
-fun SystemAddon.plane(data: Plane.() -> Unit) {
+fun Addon.plane(data: Plane.() -> Unit) {
     val plane = Plane().apply(data)
     //stuff
 }
@@ -50,5 +50,44 @@ the unsafe object is also accessible as a value within the objects:
 ````kotlin
 behEntity {
     val test = unsafe.general.containsKey("test")
+}
+````
+
+## Sample Hostile Mob Plugin
+
+In this case we want to extend the Entity components by a set of components to remove redundant declaration.
+
+````kotlin
+fun AddonEntityBeh.hostileProperties() {
+    components {
+        behMeleeAttack {}
+        attackDamage {
+            value = 5
+        }
+        attack {
+            damage = 3
+            effectName = "poison"
+            effectDuration = 2f
+        }
+        behNearestAttackableTarget {
+            priority = 3
+            mustSee = true
+            reselectTargets = true
+        }
+    }
+}
+````
+
+We can use this function in our own entity like:
+
+````kotlin
+entity {
+    name("guard", "Guard")
+    behaviour {
+        hostileProperties()
+    }
+    resource {
+        //...
+    }
 }
 ````

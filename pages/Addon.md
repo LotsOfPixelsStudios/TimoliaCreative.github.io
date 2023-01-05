@@ -5,15 +5,15 @@
 Within the `Main.kt` is already an addon structure given and hints on what is possible.
 
 ````kotlin
-addon(
-    projectName = "TranClate Adventure",
-    projectShort = "ta",
-    description = "A adventure of discovering TranClate as great development tool",
-    packIcon = getResource("general/pack.png"),
-    world = getResource("world/template-world").modifyTemplateWorldName("Template"),
+addon({
+    projectName = "TranClate Adventure"
+    projectShort = "ta"
+    description = "A adventure of discovering TranClate as great development tool"
+    packIcon = getResource("general/pack.png")
+    world = getResource("world/template-world").modifyTemplateWorldName("Template")
     version = arrayListOf(0, 0, 1)
-) {
-    
+}) {
+
 }
 ````
 
@@ -32,19 +32,20 @@ a bit different as on the machine of the developer:
 
 The version of the addon defaults to `0.0.1`, if you decide to release a new version of the addon consider
 bumping the version with the following principal: `<major>.<minor>.<patch>`. So bump the first number when releasing
-or a braking change has happened. The second number when a new feature/enhancement is released and third when a small fix
+or a braking change has happened. The second number when a new feature/enhancement is released and third when a small
+fix
 has taken place.
 
 ### Target Mc Version
 
-Modify the target Mc Version if you want to indicate that the addon was build in a older version of Minecraft. 
+Modify the target Mc Version if you want to indicate that the addon was build in a older version of Minecraft.
 Note: You may not use components of a newer Version then.
 
 Access the target mc version:
 
 ```kotlin
 addon(/*...*/) {
-    properties.targetMcVersion = arrayListOf(1,19,30)
+    properties.targetMcVersion = arrayListOf(1, 19, 30)
 }
 ```
 
@@ -63,7 +64,8 @@ addon(/*...*/) {
 
 ### Local Build
 
-As a default, the whole addon will be pushed to the minecraft folder after executing. TranClate will ensure that old files
+As a default, the whole addon will be pushed to the minecraft folder after executing. TranClate will ensure that old
+files
 will be deleted with some limitations:
 
 - can't delete if the projectName/projectShort has changed

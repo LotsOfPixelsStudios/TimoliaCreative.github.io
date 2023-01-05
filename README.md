@@ -16,14 +16,14 @@ to let the developer only write compilable code, in our case we want to make sur
 is within the limits of Minecraft. Another goal is to automate everything that can be automated.
 
 ````kotlin
-addon(
-    projectName = "Project Name",
-    projectShort = "pn",
-    description = "by Timolia Creative",
-    packIcon = getResource("general/pack.png"),
-    world = getResource("world/$worldName"),
+addon({
+    projectName = "Project Name"
+    projectShort = "pn"
+    description = "by Timolia Creative"
+    packIcon = getResource("general/pack.png")
+    world = getResource("world/$worldName")
     version = arrayListOf(1, 0, 0)
-) {
+}) {
     entity {
         name("id", "Name of The Entity")
         behaviour {

@@ -31,7 +31,7 @@ To add a simple but correct package execute within the addon the following funct
 
 ````kotlin
 addon() {
-    packageAddonCustom {
+    packaging {
         packageName = "name of the zip"
         this.world = getResource("world/worldName")
         addSkinPack(validate = true, getResource("skin_pack"))

@@ -250,3 +250,17 @@ titleRaw(target = "@a") {
     times(fadeIn = 0.2f, stay = 3f, fadeOut = 0.2f)
 }
 ````
+
+## Camera Tracks
+
+The camera tracks with an entity are deprecated as there are some issues with minecraft itself, it's not recommended for
+production use.
+
+### Concept
+
+Take coordinates of points where the camera track should go through. These points are now connected in a line and 
+the coordinates for each tick are calculated.
+
+### Usage
+
+todo
