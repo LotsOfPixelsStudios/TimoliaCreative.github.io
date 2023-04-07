@@ -22,14 +22,28 @@ directory. The complete path is `~/.gradle/env-timoliacreative.local.gradle.kts`
 
 The file structure is as follows:
 
+````kotlin
+project.extra["gitlab_token"] = "<token>"
+````
+
+While the token a Personal Access Token from gitlab is. Generate one by going to profile -> settings -> access tokens.
+make sure you check the api, read_api, read_registry and write_registry boxes and remove the expiration data.
+
+If you don't have an access file and want to use TranClate, write an e-mail
+to [contact@timoliacreative.de](mailto:contact@timoliacreative.de) with the subject to get access to the gitlab and 
+tranclate.
+
+**Deprecated**
+
+(
+The file structure is as follows:
+
 ```kotlin
 project.extra["maven_repo_user"] = "<user>"
 project.extra["maven_repo_pw"] = "<token>"
 project.extra["maven_repo_url"] = "<url>"
 ```
-
-If you don't have an access file and want to use TranClate, write an e-mail
-to [contact@timoliacreative.de](mailto:contact@timoliacreative.de) with the subject to get an access key for TranClate.
+)
 
 ## &#128296; Gradle
 
