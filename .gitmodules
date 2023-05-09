@@ -1,0 +1,3 @@
+[submodule "examples/odyssey-demo"]
+	path = examples/odyssey-demo
+	url = https://github.com/TimoliaCreative/odyssey-demo.git
